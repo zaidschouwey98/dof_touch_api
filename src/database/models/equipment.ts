@@ -9,9 +9,10 @@ interface EquipmentAttributes {
   recipe?: string | null;
 }
 
-interface EquipmentCreationAttributes extends Optional<EquipmentAttributes, 'id'> {}
+export interface IngredientInput extends Optional<EquipmentAttributes, 'id'> {}
+export interface IngredientOuput extends Required<EquipmentAttributes> {}
 
-class Equipment extends Model<EquipmentAttributes, EquipmentCreationAttributes> implements EquipmentAttributes {
+class Equipment extends Model<EquipmentAttributes, IngredientInput> implements EquipmentAttributes {
   public id!: number;
   public name!: string;
   public lvl!: string;
@@ -44,9 +45,7 @@ Equipment.init(
     },
   },
   {
-    sequelize,
-    modelName: 'Equipment',
+    sequelize
   }
 );
-
 export default Equipment;
