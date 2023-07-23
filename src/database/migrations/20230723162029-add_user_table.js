@@ -17,6 +17,18 @@ module.exports = {
         type: Sequelize.CHAR(60),
         allowNull: false,
       },
+      userType:{
+        type: Sequelize.STRING(10),
+        allowNull: false,
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
     });
   },
 

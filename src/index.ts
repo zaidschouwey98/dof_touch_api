@@ -1,5 +1,6 @@
 import express from "express";
 import v1EquipmentRouter from "./v1/routes/equipmentRoutes";
+import v1UserRouter from "./v1/routes/userRoutes";
 import bodyParser from "body-parser";
 
 require('dotenv').config();
@@ -29,6 +30,7 @@ app.use(bodyParser.json({limit: '50mb'}))
 
 // Routers
 app.use("/api/v1/equipments", v1EquipmentRouter);
+app.use("/api/v1/user", v1UserRouter);
 
 app.listen(PORT, () => {
   console.log("Server Listening on PORT:", PORT);
