@@ -5,9 +5,9 @@ const equipmentController = new EquipmentController();
 
 
 router.get("/", equipmentController.getAllEquipments.bind(equipmentController));
-router.get("/:equipmentId", equipmentController.getEquipmentById);
+router.get("/:equipmentId", equipmentController.getEquipmentById.bind(equipmentController));
 router.post("/",equipmentController.createEquipment.bind(equipmentController));
-router.patch("/:equipmentId", equipmentController.updateEquipment);
-router.delete("/:equipmentId", equipmentController.deleteEquipment);
+router.patch("/:equipmentId", equipmentController.updateEquipment.bind(equipmentController));
+router.delete("/:equipmentId", equipmentController.deleteEquipment.bind(equipmentController));
 
 export default router;

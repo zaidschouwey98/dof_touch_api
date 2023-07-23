@@ -4,6 +4,7 @@ import { sequelize } from './index';
 interface EquipmentAttributes {
   id: number;
   name: string;
+  type: string;
   lvl?: string;
   statistics?: string | null;
   recipe?: string | null;
@@ -15,6 +16,7 @@ export interface IngredientOuput extends Required<EquipmentAttributes> {}
 class Equipment extends Model<EquipmentAttributes, IngredientInput> implements EquipmentAttributes {
   public id!: number;
   public name!: string;
+  public type!: string;
   public lvl!: string;
   public statistics!: string | null;
   public recipe!: string | null;
@@ -43,6 +45,10 @@ Equipment.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    type: {
+      type: DataTypes.STRING(20),
+      allowNull: false
+    }
   },
   {
     sequelize

@@ -2,24 +2,26 @@ import Equipment from "../database/models/equipment";
 
 export default class EquipmentService
 {
-    constructor(){
-        
-    }
-    public getById(id:number){
-
+    public async getById(id:number){
+        return await Equipment.findByPk(id)
     }
 
-    public getAll(){
-
+    public async getAll(){
+        return await Equipment.findAll();
     }
     
-    public delete(id:number){
-
+    public async delete(id:number){
+        return await Equipment.destroy({where:{id:id}})
     }
 
     public async update(body:Equipment){
         if(!body.id)
             throw new Error("Id not given.");
+        Equipment.update(body,{where:{id:body.id}});
+    }
+
+    public async getByType(type:string){
+        return await Equipment.findAll({where:{type:type}})
     }
 
     public async create(body:Equipment){
