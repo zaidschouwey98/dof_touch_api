@@ -13,6 +13,10 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
+      type: {
+        type: Sequelize.STRING(20),
+        allowNull: false,
+      },
       lvl: {
         type: Sequelize.STRING,
         allowNull: false,

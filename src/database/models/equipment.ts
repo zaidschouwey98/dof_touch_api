@@ -10,10 +10,10 @@ interface EquipmentAttributes {
   recipe?: string | null;
 }
 
-export interface IngredientInput extends Optional<EquipmentAttributes, 'id'> {}
-export interface IngredientOuput extends Required<EquipmentAttributes> {}
+export interface EquipmentInput extends Optional<EquipmentAttributes, 'id'> {}
+export interface EquipmentOutput extends Required<EquipmentAttributes> {}
 
-class Equipment extends Model<EquipmentAttributes, IngredientInput> implements EquipmentAttributes {
+class Equipment extends Model<EquipmentAttributes, EquipmentInput> implements EquipmentAttributes {
   public id!: number;
   public name!: string;
   public type!: string;

@@ -28,8 +28,12 @@ export class EquipmentController {
             res.status(500).send(error.message);
         }   
     }
-    public getEquipmentById(req:Request,res:Response){
-        
+    public async getEquipmentById(req:Request & {params:{equipmentId:number}},res:Response){
+        try {
+            res.json(await this.equipmentService.getById(req.params.equipmentId));
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
     }
 
     public async createEquipment(req:Request,res:Response){
@@ -51,10 +55,18 @@ export class EquipmentController {
             res.status(500).send(error.message);
         }
     }
-    public updateEquipment(req,res){
-        
+    public async updateEquipment(req:Request & {params:{equipmentId:number},query:any},res:Response){
+        try {
+            res.json(await this.equipmentService.getById(req.params.equipmentId));
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
     }
-    public deleteEquipment(req,res){
-        
+    public async deleteEquipment(req:Request & {params:{equipmentId:number}},res:Response){
+        try {
+            
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
     }
 }
