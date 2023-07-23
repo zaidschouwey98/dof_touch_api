@@ -1,4 +1,4 @@
-{
+const config = {
   "development": {
     "username": "root",
     "password": "root",
@@ -21,3 +21,4 @@
     "dialect": "mariadb"
   }
 }
+export default config;

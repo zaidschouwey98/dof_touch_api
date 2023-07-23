@@ -1,19 +1,13 @@
-const router = express.Router();
+import { EquipmentController } from "../../controllers/equipmentController";
+import { Router } from 'express'
 
-router.get("/",(req,res)=>{
-    res.send("");
-});
-router.get("/:equipmentId",(req,res)=>{
-    res.send("");
-});
-router.post("/",(req,res)=>{
-    res.send("");
-});
-router.patch("/:equipmentId",(req,res)=>{
-    res.send("");
-});
-router.delete("/:equipmentId",(req,res)=>{
-    res.send("");
-});
+const router = Router();
+const equipmentController = new EquipmentController();
+
+router.get("/", equipmentController.getAllEquipments);
+router.get("/:equipmentId", equipmentController.getEquipmentById);
+router.post("/",equipmentController.createEquipment);
+router.patch("/:equipmentId", equipmentController.updateEquipment);
+router.delete("/:equipmentId", equipmentController.deleteEquipment);
 
 module.exports = router;

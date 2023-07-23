@@ -1,9 +1,9 @@
 const express = require("express");
-const v1EquipmentRouter= require("./v1/routes/equipmentRoutes");
+const v1EquipmentRouter = require("./v1/routes/equipmentRoutes");
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 
-const app = express ();
+const app = express();
 const PORT = process.env.PORT || 3000;
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
@@ -24,8 +24,8 @@ async function testDatabaseConnection() {
 testDatabaseConnection();
 
 // Routers
-app.use("/api/v1/equipments",v1EquipmentRouter );
+app.use("/api/v1/equipments", v1EquipmentRouter);
 
 app.listen(PORT, () => {
-    console.log("Server Listening on PORT:", PORT);
-  });
+  console.log("Server Listening on PORT:", PORT);
+});
