@@ -3,7 +3,8 @@ import EquipmentService from "../services/equipmentService";
 export class EquipmentController {
     public equipmentService:EquipmentService;
     constructor(){
-        this.equipmentService = new EquipmentService()
+        this.equipmentService = new EquipmentService();
+        console.log(this.equipmentService)
     }
     public getAllEquipments(req,res){
         
@@ -11,11 +12,15 @@ export class EquipmentController {
     public getEquipmentById(req,res){
         
     }
-    public createEquipment(req,res){
+    public async createEquipment(req,res){
         try {
-            this.equipmentService.create({})
-        } catch (error) {
             
+            let equipmentService = new EquipmentService();
+            console.log(equipmentService)
+            let test = await equipmentService.create({});
+            res.send(test);
+        } catch (error) {
+            console.error(error.toString())
         }
     }
     public updateEquipment(req,res){

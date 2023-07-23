@@ -1,10 +1,10 @@
-import { Model, ModelAttributes } from "sequelize";
-import ModelManager from "sequelize/types/model-manager";
-
-const Equipment = require("../database/models/equipment");
+import Equipment from "../database/models/equipment";
 
 export default class EquipmentService
 {
+    constructor(){
+        
+    }
     public getById(id:number){
 
     }
@@ -22,6 +22,7 @@ export default class EquipmentService
     }
 
     public async create(body:any){
-        const newEquipment = await Equipment.create({name:"test",lvl:1,statistics:"[]",recipe:"[]"})
+        const newEquipment = await Equipment.create({name:"test",lvl:"1",statistics:"[]",recipe:"[]"})
+        return newEquipment;
     }
 }
