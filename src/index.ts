@@ -1,5 +1,6 @@
-const express = require("express");
-const v1EquipmentRouter = require("./v1/routes/equipmentRoutes");
+import express from "express";
+import v1EquipmentRouter from "./v1/routes/equipmentRoutes";
+
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
 

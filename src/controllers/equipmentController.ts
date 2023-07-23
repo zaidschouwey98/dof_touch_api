@@ -1,11 +1,20 @@
 import EquipmentService from "../services/equipmentService";
 
 export class EquipmentController {
+    private static instance: EquipmentController;
     public equipmentService:EquipmentService;
+
     constructor(){
         this.equipmentService = new EquipmentService();
-        console.log(this.equipmentService)
     }
+
+    public static getInstance(): EquipmentController {
+        if (!EquipmentController.instance) {
+            EquipmentController.instance = new EquipmentController();
+        }
+        return EquipmentController.instance;
+    }
+    
     public getAllEquipments(req,res){
         
     }
@@ -14,13 +23,10 @@ export class EquipmentController {
     }
     public async createEquipment(req,res){
         try {
-            
-            let equipmentService = new EquipmentService();
-            console.log(equipmentService)
-            let test = await equipmentService.create({});
+            let test = await this.equipmentService.create({});
             res.send(test);
         } catch (error) {
-            console.error(error.toString())
+            res.status(500).send(error.message);
         }
     }
     public updateEquipment(req,res){
