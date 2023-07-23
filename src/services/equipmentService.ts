@@ -17,12 +17,15 @@ export default class EquipmentService
 
     }
 
-    public update(body:any){
-
+    public async update(body:Equipment){
+        if(!body.id)
+            throw new Error("Id not given.");
     }
 
-    public async create(body:any){
-        const newEquipment = await Equipment.create({name:"test",lvl:"1",statistics:"[]",recipe:"[]"})
+    public async create(body:Equipment){
+        if(!body.name || !body.lvl)
+            throw new Error("Name of lvl is null or undefined.");
+        const newEquipment = await Equipment.create(body);
         return newEquipment;
     }
 }

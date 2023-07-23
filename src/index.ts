@@ -1,5 +1,6 @@
 import express from "express";
 import v1EquipmentRouter from "./v1/routes/equipmentRoutes";
+import bodyParser from "body-parser";
 
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
@@ -23,6 +24,8 @@ async function testDatabaseConnection() {
 
 // Call the testDatabaseConnection function to check the connection
 testDatabaseConnection();
+
+app.use(bodyParser.json({limit: '50mb'}))
 
 // Routers
 app.use("/api/v1/equipments", v1EquipmentRouter);
